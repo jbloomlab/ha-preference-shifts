@@ -1,0 +1,41 @@
+# load MSA
+open ../results/foldmason/ha1/4o5n_4kwm_ha1_aln.fasta
+open ../results/foldmason/ha1/4o5n_4r8w_ha1_aln.fasta
+open ../results/foldmason/ha1/4r8w_4kwm_ha1_aln.fasta
+
+# load PDBs (automatically associates with correct sequence in MSA)
+open 4o5n
+open 4kwm
+open 4r8w
+
+# superimpose structures based on MSA (use H3 as reference)
+sequence match 4o5n_4kwm_ha1_aln.fasta #2/A to #1/A
+sequence match 4o5n_4r8w_ha1_aln.fasta #3/A to #1/A
+
+# aesthetics
+hide atoms
+hide cartoons
+show #1/A cartoons
+show #2/A cartoons
+show #3/A cartoons
+
+lighting qualityOfShadows finer
+graphics quality 4
+lighting gentle
+set bgColor white
+graphics silhouettes true
+graphics silhouettes width 2
+
+color #1/A #709AE1 cartoons
+color #2/A #F05C3B cartoons
+color #3/A #F7C530 cartoons
+
+# get RMSDs
+sequence header 4o5n_4kwm_ha1_aln.fasta rmsd show
+sequence header 4o5n_4kwm_ha1_aln.fasta rmsd save ../results/rmsd/h3_h5_ha1_rmsd.txt
+
+sequence header 4o5n_4r8w_ha1_aln.fasta rmsd show
+sequence header 4o5n_4r8w_ha1_aln.fasta rmsd save ../results/rmsd/h3_h7_ha1_rmsd.txt
+
+sequence header 4r8w_4kwm_ha1_aln.fasta rmsd show
+sequence header 4r8w_4kwm_ha1_aln.fasta rmsd save ../results/rmsd/h5_h7_ha1_rmsd.txt
