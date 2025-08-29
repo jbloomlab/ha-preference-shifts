@@ -1,0 +1,22 @@
+# Config for analysis
+
+# ----------------------------------------------------------------------------
+description: Epistatic shifts in hemagglutinin across influenza subtypes
+year: 2025
+authors: Timothy Yu
+
+# ----------------------------------------------------------------------------
+# Paths to deep mutational scanning measurements
+# ----------------------------------------------------------------------------
+h3_cell_entry: https://github.com/dms-vep/Flu_H3_Massachusetts2022_DMS/blob/main/results/func_effects/averages/MDCKSIAT1_entry_func_effects.csv
+h5_cell_entry: https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS/blob/main/results/func_effects/averages/293T_entry_func_effects.csv
+h7_cell_entry: https://github.com/dms-vep/Flu_H7_Anhui13_DMS/blob/main/results/func_effects/averages/293_mix_entry_func_effects.csv
+
+# ----------------------------------------------------------------------------
+# Alignment file for IAV subtype tree
+# ----------------------------------------------------------------------------
+ha_alignment: data/ha_alignment.fasta
+
+
+
+

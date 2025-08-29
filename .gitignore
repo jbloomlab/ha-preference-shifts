@@ -1,0 +1,13 @@
+.*
+_*
+*.out
+*.fastq
+
+!.gitignore
+!.gitignore
+!.gitmodules
+!.github
+
+structures/jsd*
+structures/alignment
+scratch/*
