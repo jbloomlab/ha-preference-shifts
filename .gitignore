@@ -8,6 +8,8 @@ _*
 !.gitmodules
 !.github
 
+foldmason/
+
 structures/jsd*
 structures/alignment
 scratch/*
