@@ -1,0 +1,45 @@
+# open PDB file
+open 4O5N
+
+# setup the view so cartoons look nicer, and hide everything to start from scratch.
+preset cartoons/nucleotides licorice/ovals
+hide atoms
+hide cartoon
+
+# Set lighting and graphics
+lighting qualityOfShadows finer
+graphics quality 4
+lighting flat
+set bgColor white
+
+# Use silhouettes
+# graphics silhouettes true
+# graphics silhouettes width 1
+
+# If you want to show cartoons, can adjust the width and thickness.
+# cartoon style width 1.5 thickness 1.5
+
+# Show the surface of chain A, with a probeRadius of 2 to hide any holes.
+surface /A probeRadius 2
+hide /A surface
+show /A cartoon
+
+# Show the surface of chain B, with a probeRadius of 2 to hide any holes.
+show /B cartoon
+hide /B surface
+
+# Open the .defattr file we made earlier with the mean effects of mutations.
+open ../results/jensen_shannon_divergence/jsd_h3_h5.defattr
+
+# Color the cartoon gray by default
+color /A gray
+color /B gray
+
+# Color the cartoon of the protein by the mean effects of mutations. Can adjust the domain or the colors used.
+color byattr JS_h3_vs_h5 target c palette 0,white:0.6,#800000
+
+sym #1 assembly 1
+hide atoms
+
+# Save the image with a transparent background and a high resolution.
+# save MA22_stability_mean.png supersample 3 transparentBackground true height 3000 width 3000
