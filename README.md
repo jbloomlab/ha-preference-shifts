@@ -8,3 +8,11 @@ Build the conda environment using the provided `environment.yml` file in this di
 conda env create -f environment.yml 
 conda activate ha-epistasis
 ```
+
+## Downloading DSSP
+To download the DSSP annotations, run:
+```bash
+wget --content-disposition https://pdb-redo.eu/dssp/db/4o5n/legacy
+wget --content-disposition https://pdb-redo.eu/dssp/db/4kwm/legacy
+wget --content-disposition https://pdb-redo.eu/dssp/db/4r8w/legacy
+```
