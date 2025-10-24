@@ -9,6 +9,8 @@ dependencies:
   - baltic=0.3
   - biopython=1.84
   - black-jupyter
+  - conda-forge::dssp
+  - bioconda::libcifpp
   - entrez-direct=22.4
   - flatdict=4.0
   - foldmason
@@ -41,4 +43,3 @@ dependencies:
       - multidms==0.4.2
       - neutcurve==2.1
       - polyclonal==6.16
-      - dms_tools2
