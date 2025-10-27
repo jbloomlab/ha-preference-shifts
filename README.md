@@ -23,4 +23,5 @@ To run DSSP to calculate solvent accessibility, run:
 mkdssp structures/pdbs/4O5N-assembly1.cif structures/dssp/4O5N_dssp.mmcif --calculate-accessibility --verbose
 mkdssp structures/pdbs/4KWM-assembly1.cif structures/dssp/4KWM_dssp.mmcif --calculate-accessibility --verbose
 mkdssp structures/pdbs/4R8W-assembly1-noAb.cif structures/dssp/4R8W_dssp.mmcif --calculate-accessibility --verbose
+mkdssp structures/pdbs/6II9-assembly1.cif structures/dssp/6II9_dssp.mmcif --calculate-accessibility --verbose
 ```
