@@ -8,27 +8,10 @@ open 4o5n
 open 4kwm
 open 6ii9
 
+
 # superimpose structures based on MSA (use H3 as reference)
 sequence match 4o5n_4kwm_ha2_aln.fasta #2/B to #1/B
 sequence match 4o5n_6ii9_ha2_aln.fasta #3/B to #1/B
-
-# aesthetics
-hide atoms
-hide cartoons
-show #1/B cartoons
-show #2/B cartoons
-show #3/B cartoons
-
-lighting qualityOfShadows finer
-graphics quality 4
-lighting gentle
-set bgColor white
-graphics silhouettes true
-graphics silhouettes width 2
-
-color #1/B #709AE1 cartoons
-color #2/B #F05C3B cartoons
-color #3/B #F7C530 cartoons
 
 # get RMSDs
 sequence header 4o5n_4kwm_ha2_aln.fasta rmsd show
@@ -39,3 +22,29 @@ sequence header 4o5n_6ii9_ha2_aln.fasta rmsd save ../results/rmsd/h3_h7_ha2_rmsd
 
 sequence header 6ii9_4kwm_ha2_aln.fasta rmsd show
 sequence header 6ii9_4kwm_ha2_aln.fasta rmsd save ../results/rmsd/h5_h7_ha2_rmsd.txt
+
+sym #1 assembly 1
+
+# aesthetics
+preset cartoons/nucleotides licorice/ovals
+hide atoms
+hide cartoons
+show #4.1/B cartoons
+show #2/B cartoons
+show #3/B cartoons
+
+lighting qualityOfShadows finer
+graphics quality 4
+lighting gentle
+set bgColor white
+graphics silhouettes true
+graphics silhouettes width 2
+
+color #4.1/B #71BF8B cartoons
+color #2/B #A25E8F cartoons
+color #3/B #FFB651 cartoons
+
+# add background
+show #4.1/A #4.2/A-B #4.3/A-B cartoon
+color #4.1/A #4.2/A-B #4.3/A-B white cartoon
+cartoon style width 1.5 thickness 1.5

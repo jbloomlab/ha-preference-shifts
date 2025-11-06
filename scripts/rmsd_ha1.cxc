@@ -12,24 +12,6 @@ open 6ii9
 sequence match 4o5n_4kwm_ha1_aln.fasta #2/A to #1/A
 sequence match 4o5n_6ii9_ha1_aln.fasta #3/A to #1/A
 
-# aesthetics
-hide atoms
-hide cartoons
-show #1/A cartoons
-show #2/A cartoons
-show #3/A cartoons
-
-lighting qualityOfShadows finer
-graphics quality 4
-lighting gentle
-set bgColor white
-graphics silhouettes true
-graphics silhouettes width 2
-
-color #1/A #709AE1 cartoons
-color #2/A #F05C3B cartoons
-color #3/A #F7C530 cartoons
-
 # get RMSDs
 sequence header 4o5n_4kwm_ha1_aln.fasta rmsd show
 sequence header 4o5n_4kwm_ha1_aln.fasta rmsd save ../results/rmsd/h3_h5_ha1_rmsd.txt
@@ -39,3 +21,29 @@ sequence header 4o5n_6ii9_ha1_aln.fasta rmsd save ../results/rmsd/h3_h7_ha1_rmsd
 
 sequence header 6ii9_4kwm_ha1_aln.fasta rmsd show
 sequence header 6ii9_4kwm_ha1_aln.fasta rmsd save ../results/rmsd/h5_h7_ha1_rmsd.txt
+
+sym #1 assembly 1
+
+# aesthetics
+preset cartoons/nucleotides licorice/ovals
+hide atoms
+hide cartoons
+show #4.1/A cartoons
+show #2/A cartoons
+show #3/A cartoons
+
+lighting qualityOfShadows finer
+graphics quality 4
+lighting gentle
+set bgColor white
+graphics silhouettes true
+graphics silhouettes width 3
+
+color #4.1/A #71BF8B cartoons
+color #2/A #A25E8F cartoons
+color #3/A #FFB651 cartoons
+
+# add background
+show #4.1/B #4.2/A-B #4.3/A-B cartoon
+color #4.1/B #4.2/A-B #4.3/A-B white cartoon
+cartoon style width 1.5 thickness 1.5
