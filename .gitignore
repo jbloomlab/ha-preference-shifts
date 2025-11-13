@@ -9,9 +9,7 @@ _*
 !.github
 
 foldmason/
-
-structures/jsd*
-structures/alignment
 scratch/*
 
 archive/
+logs/

@@ -1,22 +1,57 @@
 # Config for analysis
 
 # ----------------------------------------------------------------------------
-description: Epistatic shifts in hemagglutinin across influenza subtypes
+description: Comparing mutation effects to influenza HA subtypes
 year: 2025
 authors: Timothy Yu
 
 # ----------------------------------------------------------------------------
-# Paths to deep mutational scanning measurements
+# Cell entry files
 # ----------------------------------------------------------------------------
-h3_cell_entry: https://github.com/dms-vep/Flu_H3_Massachusetts2022_DMS/blob/main/results/func_effects/averages/MDCKSIAT1_entry_func_effects.csv
-h5_cell_entry: https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS/blob/main/results/func_effects/averages/293T_entry_func_effects.csv
-h7_cell_entry: https://github.com/dms-vep/Flu_H7_Anhui13_DMS/blob/main/results/func_effects/averages/293_mix_entry_func_effects.csv
+cell_entry_files:
+  h3: data/cell_entry_effects/MDCKSIAT1_entry_func_effects.csv
+  h5: data/cell_entry_effects/293T_entry_func_effects.csv
+  h7: data/cell_entry_effects/293_mix_entry_func_effects.csv
+
+# ----------------------------------------------------------------------------
+# Parameters for filtering cell entry data
+# ----------------------------------------------------------------------------
+filter_params:
+  effect_std_filter: 2
+  times_seen_filter: 2
+  n_selections_filter: 2
+  clip_effect: -5
 
 # ----------------------------------------------------------------------------
 # Alignment file for IAV subtype tree
 # ----------------------------------------------------------------------------
-ha_alignment: data/ha_alignment.fasta
+ha_subtype_alignment: data/ha18_alignment_revised.fasta
 
+# ----------------------------------------------------------------------------
+# PDB structures and chains to extract
+# ----------------------------------------------------------------------------
+pdbs:
+  4kwm:
+    model: 1
+    chains: ["A", "B"]
+    cif: data/pdbs/4KWM-mod-assembly1.cif # cif file for running dssp
+  4o5n:
+    model: 1
+    chains: ["A", "B"]
+    cif: data/pdbs/4O5N-mod-assembly1.cif
+  6ii9:
+    model: 0
+    chains: ["A", "B"]
+    cif: data/pdbs/6II9-assembly1.cif
 
-
+# ----------------------------------------------------------------------------
+# RMSD files for structural alignment
+# ----------------------------------------------------------------------------
+rmsd_files:
+  - data/rmsd/h3_h5_ha1_rmsd.txt
+  - data/rmsd/h3_h5_ha2_rmsd.txt
+  - data/rmsd/h3_h7_ha1_rmsd.txt
+  - data/rmsd/h3_h7_ha2_rmsd.txt
+  - data/rmsd/h5_h7_ha1_rmsd.txt
+  - data/rmsd/h5_h7_ha2_rmsd.txt
 

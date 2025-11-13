@@ -1,4 +1,4 @@
-# Epistatic shifts in hemagglutinin across subtypes
+# Comparing mutation effects to influenza HA subtypes
 Study by Timothy Yu and Jesse Bloom.
 
 ## Conda environment
@@ -6,22 +6,19 @@ Build the conda environment using the provided `environment.yml` file in this di
 
 ```bash
 conda env create -f environment.yml 
+```
+
+## Snakemake pipeline
+Some of the analyses are automated by [snakemake](https://snakemake.readthedocs.io/en/stable/). To run the pipeline:
+```bash
 conda activate ha-epistasis
+snakemake -j 8 -s Snakefile --rerun-incomplete
 ```
 
-## Downloading DSSP
-To download the DSSP annotations, run:
+To run on the Hutch cluster via [slurm](https://slurm.schedmd.com/), you can run:
 ```bash
-wget --content-disposition https://pdb-redo.eu/dssp/db/4o5n/legacy
-wget --content-disposition https://pdb-redo.eu/dssp/db/4kwm/legacy
-wget --content-disposition https://pdb-redo.eu/dssp/db/4r8w/legacy
+sbatch -c 8 run_hutch_cluster.bash
 ```
 
-## Running DSSP
-To run DSSP to calculate solvent accessibility, run:
-```bash
-mkdssp structures/pdbs/4O5N-assembly1.cif structures/dssp/4O5N_dssp.mmcif --calculate-accessibility --verbose
-mkdssp structures/pdbs/4KWM-assembly1.cif structures/dssp/4KWM_dssp.mmcif --calculate-accessibility --verbose
-mkdssp structures/pdbs/4R8W-assembly1-noAb.cif structures/dssp/4R8W_dssp.mmcif --calculate-accessibility --verbose
-mkdssp structures/pdbs/6II9-assembly1.cif structures/dssp/6II9_dssp.mmcif --calculate-accessibility --verbose
-```
+Note that some parts of the analysis depend on a local installation of ChimeraX. The files in [data/rmsd](data/rmsd) were pre-generated so that the pipeline runs in a single go, but they depend on files generated in the pipeline. To reproduce them, open the ChimeraX scripts [rmsd_ha1.cxc](scripts/non_pipeline_scripts/rmsd_ha1.cxc) and [rmsd_ha2.cxc](scripts/non_pipeline_scripts/rmsd_ha2.cxc) in ChimeraX.
+

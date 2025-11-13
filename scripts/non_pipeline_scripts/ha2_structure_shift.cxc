@@ -1,0 +1,41 @@
+# load MSA
+open ../results/foldmason/ha1/4o5n_4kwm_ha1_aln.fasta
+open ../results/foldmason/ha1/4o5n_6ii9_ha1_aln.fasta
+open ../results/foldmason/ha1/6ii9_4kwm_ha1_aln.fasta
+
+# load PDBs (automatically associates with correct sequence in MSA)
+open 4o5n
+open 4kwm
+open 6ii9
+
+# superimpose structures based on MSA (use H3 as reference)
+sequence match 4o5n_4kwm_ha1_aln.fasta #2/A to #1/A
+sequence match 4o5n_6ii9_ha1_aln.fasta #3/A to #1/A
+
+sym #1 assembly 1
+
+# aesthetics
+preset cartoons/nucleotides licorice/ovals
+hide atoms
+hide cartoons
+show #4.1/A,B cartoons
+show #2/A,B cartoons
+show #3/A,B cartoons
+
+lighting qualityOfShadows finer
+graphics quality 4
+lighting flat
+set bgColor white
+graphics silhouettes true
+graphics silhouettes width 3
+
+color #4.1/A,B  #71BF8B cartoons
+color #2/A,B #A25E8F cartoons
+color #3/A,B #FFB651 cartoons
+
+# add background
+hide #4.2/A,B #4.3/A,B cartoons
+cartoon style width 1.25 thickness 1.25
+transparency #4.1/A #2/A #3/A 70 target c
+
+# this reveals shift in relative orientation of HA1/HA2 between H5 and H3-H7

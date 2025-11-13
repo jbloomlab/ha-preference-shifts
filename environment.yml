@@ -15,6 +15,7 @@ dependencies:
   - flatdict=4.0
   - foldmason
   - git-lfs
+  - iqtree
   - jupyterlab
   - mafft=7.525
   - markdown=3.6
