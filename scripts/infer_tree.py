@@ -32,13 +32,13 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
 
     # Run IQ-TREE with maximum-likelihood inference
-    # -m TEST: automatically select best-fit amino acid substitution model
+    # -m JTT+G: JTT substitution model with Gamma rate heterogeneity
     # -bb 1000: ultrafast bootstrap with 1000 replicates (optional, can adjust or remove)
     # -nt AUTO: automatically determine number of threads
     iqtree_cmd = [
         "iqtree",
         "-s", alignment_file,
-        "-m", "TEST",  # Automatic model selection (not specific model like "LG", "WAG", "JTT")
+        "-m", "JTT+G",  # JTT+G model (JTT with Gamma rate heterogeneity)
         "-bb", "1000",  # Ultrafast bootstrap
         "-nt", "AUTO",
         "-pre", str(output_prefix),  # Prefix for output files
@@ -62,12 +62,12 @@ def main():
     for line in stdout_lines[-50:]:
         print(line)
 
-    print("\n--- Best model selected ---")
-    # Parse the log file to show the best model
-    log_file = f"{output_prefix}.log"
-    with open(log_file) as f:
+    print("\n--- Model used ---")
+    # Parse the iqtree report file to show the model
+    iqtree_file = f"{output_prefix}.iqtree"
+    with open(iqtree_file) as f:
         for line in f:
-            if "Best-fit model:" in line:
+            if "Model of substitution:" in line:
                 print(line.strip())
                 break
 

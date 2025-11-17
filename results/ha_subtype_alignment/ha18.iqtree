@@ -1,8 +1,8 @@
 IQ-TREE 3.0.1 built Jul  9 2025
 
 Input file name: data/ha18_alignment_revised.fasta
-Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
-Random seed number: 905825
+Type of analysis: tree reconstruction + ultrafast bootstrap (1000 replicates)
+Random seed number: 215807
 
 REFERENCES
 ----------
@@ -16,13 +16,6 @@ IQ-TREE 3: Phylogenomic Inference Software using Complex Evolutionary Models.
 Submitted.
 
 Please also cite the following paper(s) for the feature(s) that you used:
-
-To cite ModelFinder please use: 
-
-Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
-and Lars S Jermiin (2017) ModelFinder: Fast model selection for
-accurate phylogenetic estimates. Nature Methods, 14:587–589.
-https://doi.org/10.1038/nmeth.4285
 
 Since you used ultrafast bootstrap (UFBoot) please also cite: 
 
@@ -40,141 +33,64 @@ Number of invariant (constant or ambiguous constant) sites: 119 (= 20.5172% of a
 Number of parsimony informative sites: 416
 Number of distinct site patterns: 509
 
-ModelFinder
------------
-
-Best-fit model according to BIC: Q.YEAST+I+G4
-
-List of models sorted by BIC scores: 
-
-Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
-Q.YEAST+I+G4     -13647.526   27365.052 +        1   27369.685 +        1   27517.758 +        1
-LG+I+G4          -13681.400   27432.800 - 1.94e-15   27437.432 - 1.94e-15   27585.506 - 1.94e-15
-Q.PFAM+I+G4      -13685.860   27441.719 - 2.25e-17   27446.351 - 2.25e-17   27594.425 - 2.25e-17
-LG+G4            -13693.322   27454.645 - 3.51e-20   27459.012 - 4.01e-20   27602.988 - 3.11e-19
-LG+F+I+G4        -13636.892   27381.783 - 0.000233   27393.097 - 8.24e-06   27617.387 - 2.32e-22
-Q.PFAM+F+I+G4    -13641.885   27391.769 - 1.58e-06   27403.084 - 5.59e-08   27627.373 - 1.58e-24
-WAG+F+I+G4       -13644.791   27397.582 - 8.63e-08   27408.896 - 3.06e-09   27633.185 - 8.62e-26
-Q.INSECT+I+G4    -13709.675   27489.350 - 1.02e-27   27493.982 - 1.02e-27   27642.056 - 1.02e-27
-VT+I+G4          -13721.123   27512.247 - 1.09e-32   27516.879 - 1.09e-32   27664.953 - 1.09e-32
-WAG+I+G4         -13729.737   27529.474 - 1.98e-36   27534.107 - 1.98e-36   27682.180 - 1.98e-36
-RTREV+F+I+G4     -13671.427   27450.854 - 2.34e-19   27462.168 - 8.27e-21   27686.457 - 2.33e-37
-VT+F+I+G4        -13682.630   27473.260 - 3.18e-24   27484.574 - 1.13e-25   27708.864 - 3.18e-42
-Q.YEAST+F+I+G4   -13687.224   27482.448 - 3.22e-26   27493.762 - 1.14e-27   27718.051 - 3.21e-44
-BLOSUM62+F+I+G4  -13695.639   27499.278 - 7.13e-30   27510.593 - 2.52e-31   27734.882 - 7.12e-48
-FLU+I+G4         -13764.325   27598.651 - 1.88e-51   27603.283 - 1.88e-51   27751.357 - 1.88e-51
-RTREV+I+G4       -13769.505   27609.011 - 1.06e-53   27613.643 - 1.06e-53   27761.717 - 1.06e-53
-CPREV+I+G4       -13775.342   27620.684 - 3.09e-56   27625.317 - 3.09e-56   27773.390 - 3.09e-56
-PMB+F+I+G4       -13715.716   27539.432 - 1.36e-38   27550.746 - 4.82e-40   27775.035 - 1.36e-56
-BLOSUM62+I+G4    -13777.464   27624.929 -  3.7e-57   27629.561 -  3.7e-57   27777.635 -  3.7e-57
-Q.INSECT+F+I+G4  -13723.991   27555.982 - 3.47e-42   27567.296 - 1.23e-43   27791.585 - 3.46e-60
-DCMUT+F+I+G4     -13728.267   27564.533 - 4.82e-44   27575.848 - 1.71e-45   27800.137 - 4.81e-62
-DAYHOFF+F+I+G4   -13728.389   27564.779 - 4.26e-44   27576.093 - 1.51e-45   27800.382 - 4.26e-62
-FLU+F+I+G4       -13750.561   27609.122 -    1e-53   27620.436 - 3.55e-55   27844.725 -    1e-71
-PMB+I+G4         -13818.529   27707.059 - 5.42e-75   27711.691 - 5.42e-75   27859.765 - 5.42e-75
-JTTDCMUT+F+I+G4  -13761.862   27631.725 - 1.24e-58   27643.039 - 4.38e-60   27867.328 - 1.24e-76
-JTT+F+I+G4       -13763.943   27635.886 - 1.55e-59   27647.200 - 5.47e-61   27871.490 - 1.54e-77
-JTTDCMUT+I+G4    -13830.617   27731.234 - 3.05e-80   27735.867 - 3.05e-80   27883.940 - 3.05e-80
-JTT+I+G4         -13831.008   27732.016 - 2.06e-80   27736.648 - 2.06e-80   27884.722 - 2.06e-80
-CPREV+F+I+G4     -13791.543   27691.086 - 1.59e-71   27702.400 - 5.65e-73   27926.690 - 1.59e-89
-DCMUT+I+G4       -13875.625   27821.250 - 8.67e-100   27825.882 - 8.67e-100   27973.956 - 8.67e-100
-DAYHOFF+I+G4     -13875.631   27821.263 - 8.61e-100   27825.895 - 8.61e-100   27973.969 - 8.61e-100
-Q.PLANT+I+G4     -13881.622   27833.243 - 2.16e-102   27837.876 - 2.16e-102   27985.949 - 2.16e-102
-Q.PLANT+F+I+G4   -13844.547   27797.095 - 1.52e-94   27808.409 -  5.4e-96   28032.698 - 1.52e-112
-MTINV+F+I+G4     -13873.641   27855.281 - 3.53e-107   27866.595 - 1.25e-108   28090.885 - 3.53e-125
-LG+I             -13958.733   27985.466 - 1.9e-135   27989.833 - 2.17e-135   28133.809 - 1.68e-134
-MTZOA+F+I+G4     -13910.036   27928.073 - 5.52e-123   27939.387 - 1.95e-124   28163.676 - 5.5e-141
-Q.MAMMAL+F+I+G4  -13956.445   28020.890 - 3.86e-143   28032.204 - 1.37e-144   28256.494 - 3.85e-161
-HIVB+I+G4        -14034.917   28139.834 - 5.73e-169   28144.467 - 5.73e-169   28292.540 - 5.73e-169
-MTMET+F+I+G4     -13992.154   28092.308 - 1.2e-158   28103.623 - 4.24e-160   28327.912 - 1.2e-176
-MTREV+F+I+G4     -13993.818   28095.637 - 2.27e-159   28106.951 - 8.03e-161   28331.240 - 2.26e-177
-HIVB+F+I+G4      -13996.716   28101.431 - 1.25e-160   28112.745 - 4.43e-162   28337.035 - 1.25e-178
-Q.MAMMAL+I+G4    -14062.809   28195.619 - 4.41e-181   28200.251 - 4.41e-181   28348.325 - 4.41e-181
-MTART+F+I+G4     -14061.788   28231.576 - 6.86e-189   28242.891 - 2.43e-190   28467.180 - 6.85e-207
-Q.BIRD+F+I+G4    -14062.787   28233.573 - 2.53e-189   28244.888 - 8.96e-191   28469.177 - 2.52e-207
-Q.BIRD+I+G4      -14164.004   28398.008 - 4.97e-225   28402.641 - 4.97e-225   28550.714 - 4.97e-225
-LG               -14235.542   28537.084 - 3.14e-255   28541.193 - 4.07e-255   28681.064 - 2.46e-253
-MTVER+F+I+G4     -14207.246   28522.493 - 4.62e-252   28533.807 - 1.64e-253   28758.096 - 4.61e-270
-MTZOA+I+G4       -14271.788   28613.576 - 7.7e-272   28618.209 - 7.7e-272   28766.282 - 7.7e-272
-FLAVI+F+I+G4     -14244.670   28597.339 - 2.58e-268   28608.654 - 9.15e-270   28832.943 - 2.58e-286
-HIVW+F+I+G4      -14261.455   28630.910 - 1.33e-275   28642.224 - 4.69e-277   28866.513 - 1.32e-293
-HIVW+I+G4        -14328.099   28726.199 - 2.7e-296   28730.831 - 2.7e-296   28878.905 - 2.7e-296
-FLAVI+I+G4       -14341.673   28753.346 - 3.43e-302   28757.978 - 3.44e-302   28906.052 - 3.44e-302
-MTMET+I+G4       -14343.277   28756.553 - 6.91e-303   28761.186 - 6.91e-303   28909.259 - 6.91e-303
-MTMAM+F+I+G4     -14287.893   28683.787 - 4.37e-287   28695.101 - 1.55e-288   28919.390 - 4.36e-305
-MTINV+I+G4       -14355.501   28781.003 - 3.39e-308   28785.635 - 3.39e-308   28933.709 - 3.39e-308
-MTREV+I+G4       -14420.075   28910.151 -        0   28914.783 -        0   29062.857 -        0
-MTART+I+G4       -14489.870   29049.739 -        0   29054.372 -        0   29202.445 -        0
-MTVER+I+G4       -14529.817   29129.635 -        0   29134.267 -        0   29282.341 -        0
-MTMAM+I+G4       -14735.320   29540.640 -        0   29545.272 -        0   29693.346 -        0
-
-AIC, w-AIC   : Akaike information criterion scores and weights.
-AICc, w-AICc : Corrected AIC scores and weights.
-BIC, w-BIC   : Bayesian information criterion scores and weights.
-
-Plus signs denote the 95% confidence sets.
-Minus signs denote significant exclusion.
-
 SUBSTITUTION PROCESS
 --------------------
 
-Model of substitution: Q.YEAST+I+G4
+Model of substitution: JTT+G4
 
 State frequencies: (model)
 
-Model of rate heterogeneity: Invar+Gamma with 4 categories
-Proportion of invariable sites: 0.1279
-Gamma shape alpha: 1.3947
+Model of rate heterogeneity: Gamma with 4 categories
+Gamma shape alpha: 0.9110
 
  Category  Relative_rate  Proportion
-  0         0              0.1279
-  1         0.2392         0.2180
-  2         0.6537         0.2180
-  3         1.1967         0.2180
-  4         2.4972         0.2180
+  1         0.1189         0.2500
+  2         0.4482         0.2500
+  3         0.9835         0.2500
+  4         2.4494         0.2500
 Relative rates are computed as MEAN of the portion of the Gamma distribution falling in the category.
 
 MAXIMUM LIKELIHOOD TREE
 -----------------------
 
-Log-likelihood of the tree: -13647.5264 (s.e. 341.9481)
+Log-likelihood of the tree: -13843.5853 (s.e. 348.8454)
 Unconstrained log-likelihood (without tree): -3531.9462
-Number of free parameters (#branches + #model parameters): 35
-Akaike information criterion (AIC) score: 27365.0527
-Corrected Akaike information criterion (AICc) score: 27369.6851
-Bayesian information criterion (BIC) score: 27517.7587
+Number of free parameters (#branches + #model parameters): 34
+Akaike information criterion (AIC) score: 27755.1706
+Corrected Akaike information criterion (AICc) score: 27759.5376
+Bayesian information criterion (BIC) score: 27903.5136
 
-Total tree length (sum of branch lengths): 8.1233
-Sum of internal branch lengths: 3.7114 (45.6880% of tree length)
+Total tree length (sum of branch lengths): 7.2043
+Sum of internal branch lengths: 3.2228 (44.7348% of tree length)
 
 NOTE: Tree is UNROOTED although outgroup taxon 'A/Massachusetts/18/2022/H3N2' is drawn at root
 Numbers in parentheses are  ultrafast bootstrap support (%)
 
 +---------A/Massachusetts/18/2022/H3N2
 |
-|                                          +-----A/American_Wigeon/South_Carolina/USDA-000345-001/2021/H5N1
-|                                       +--| (99)
-|                                       |  +----A/Singapore/1/1957/H2N2
-|                                    +--| (75)
-|                                    |  +--------A/United/Kingdom/1/1933/H1N1
-|                                 +--| (62)
-|                                 |  +----------A/chicken/Taiwan/0705/1999/H6N1
-|                             +---| (96)
-|                             |   |             +--------A/little-yellow-shoulderedbat/Guatemala/060/2010/H17
-|                             |   +-------------| (100)
-|                             |                 +---------A/flat-faced-bat/Peru/033/2010/H18
-|           +-----------------| (100)
-|           |                 |               +-------A/turkey/Ontario/6118/1968/H8N4
-|           |                 |           +---| (91)
-|           |                 |           |   +------A/duck/Alberta/60/1976/H12N5
-|           |                 |  +--------| (100)
-|           |                 |  |        +-------A/swine/HongKong/9/1998/H9N2
-|           |                 +--| (67)
-|           |                    |   +-------A/duck/England/1/1956/H11N6
-|           |                    +---| (95)
-|           |                        |         +--A/gull/Maryland/704/1977/H13N6
-|           |                        +---------| (100)
-|           |                                  +---A/black-headedgull/Turkmenistan/13/1976/H16N3
+|                                         +-----A/American_Wigeon/South_Carolina/USDA-000345-001/2021/H5N1
+|                                      +--| (97)
+|                                      |  +-----A/Singapore/1/1957/H2N2
+|                                   +--| (59)
+|                                   |  +--------A/United/Kingdom/1/1933/H1N1
+|                                +--| (41)
+|                                |  +----------A/chicken/Taiwan/0705/1999/H6N1
+|                            +---| (98)
+|                            |   |             +---------A/little-yellow-shoulderedbat/Guatemala/060/2010/H17
+|                            |   +-------------| (100)
+|                            |                 +----------A/flat-faced-bat/Peru/033/2010/H18
+|           +----------------| (100)
+|           |                |               +-------A/turkey/Ontario/6118/1968/H8N4
+|           |                |           +---| (90)
+|           |                |           |   +-------A/duck/Alberta/60/1976/H12N5
+|           |                |  +--------| (100)
+|           |                |  |        +-------A/swine/HongKong/9/1998/H9N2
+|           |                +--| (63)
+|           |                   |   +--------A/duck/England/1/1956/H11N6
+|           |                   +---| (94)
+|           |                       |         +--A/gull/Maryland/704/1977/H13N6
+|           |                       +---------| (100)
+|           |                                 +---A/black-headedgull/Turkmenistan/13/1976/H16N3
 +-----------| (100)
 |           |               +--A/Anhui/1/2013/H7N9
 |           |        +------| (100)
@@ -182,71 +98,71 @@ Numbers in parentheses are  ultrafast bootstrap support (%)
 |           +--------| (100)
 |                    +------A/mallard/bavaria/3/2006/H10N7
 |
-|  +---A/swine/Ontario/01911-1/1099/H4N6
-+--| (82)
-   +--A/mallard/Astrakhan/263/1982/H14N5
+|  +----A/swine/Ontario/01911-1/1099/H4N6
++--| (86)
+   +---A/mallard/Astrakhan/263/1982/H14N5
 
 Tree in newick format:
 
-(A/Massachusetts/18/2022/H3N2:0.3554825410,((((((A/American_Wigeon/South_Carolina/USDA-000345-001/2021/H5N1:0.2122629963,A/Singapore/1/1957/H2N2:0.2015785870)99:0.1180465473,A/United/Kingdom/1/1933/H1N1:0.3153353355)75:0.0892264982,A/chicken/Taiwan/0705/1999/H6N1:0.3874457087)62:0.0890212001,(A/little-yellow-shoulderedbat/Guatemala/060/2010/H17:0.3444384776,A/flat-faced-bat/Peru/033/2010/H18:0.3766452715)100:0.4979797817)96:0.1392703214,(((A/turkey/Ontario/6118/1968/H8N4:0.3029515983,A/duck/Alberta/60/1976/H12N5:0.2593712508)91:0.1382735601,A/swine/HongKong/9/1998/H9N2:0.2817755561)100:0.3208620934,(A/duck/England/1/1956/H11N6:0.3032107150,(A/gull/Maryland/704/1977/H13N6:0.1246547010,A/black-headedgull/Turkmenistan/13/1976/H16N3:0.1397474721)100:0.3667264455)95:0.1383851758)67:0.0637032054)100:0.6263213385,((A/Anhui/1/2013/H7N9:0.1210350785,A/duck/Australia/341/1983/H15N8:0.1315756716)100:0.2477453225,A/mallard/bavaria/3/2006/H10N7:0.2465527785)100:0.3261978145)100:0.4317372789,(A/swine/Ontario/01911-1/1099/H4N6:0.1700766834,A/mallard/Astrakhan/263/1982/H14N5:0.1377848781)82:0.1178784886);
+(A/Massachusetts/18/2022/H3N2:0.3103471669,((((((A/American_Wigeon/South_Carolina/USDA-000345-001/2021/H5N1:0.1863187310,A/Singapore/1/1957/H2N2:0.1808594350)97:0.1102172822,A/United/Kingdom/1/1933/H1N1:0.2794359261)59:0.0720464937,A/chicken/Taiwan/0705/1999/H6N1:0.3460047836)41:0.0765454507,(A/little-yellow-shoulderedbat/Guatemala/060/2010/H17:0.3206747762,A/flat-faced-bat/Peru/033/2010/H18:0.3352840810)100:0.4314000878)98:0.1198110629,(((A/turkey/Ontario/6118/1968/H8N4:0.2624964726,A/duck/Alberta/60/1976/H12N5:0.2453008483)90:0.1273270233,A/swine/HongKong/9/1998/H9N2:0.2539978284)100:0.2896473777,(A/duck/England/1/1956/H11N6:0.2681353758,(A/gull/Maryland/704/1977/H13N6:0.1177590751,A/black-headedgull/Turkmenistan/13/1976/H16N3:0.1240726151)100:0.3254400097)94:0.1199494516)63:0.0580318239)100:0.5303672745,((A/Anhui/1/2013/H7N9:0.1152750374,A/duck/Australia/341/1983/H15N8:0.1157312237)100:0.2089878951,A/mallard/bavaria/3/2006/H10N7:0.2361874881)100:0.2865120376)100:0.3603473392,(A/swine/Ontario/01911-1/1099/H4N6:0.1570758876,A/mallard/Astrakhan/263/1982/H14N5:0.1265013752)86:0.1061852000);
 
 CONSENSUS TREE
 --------------
 
 Consensus tree is constructed from 1000 bootstrap trees
-Log-likelihood of consensus tree: -13647.526434
-Robinson-Foulds distance between ML tree and consensus tree: 0
+Log-likelihood of consensus tree: -13843.955876
+Robinson-Foulds distance between ML tree and consensus tree: 2
 
 Branches with support >0.000000% are kept (extended consensus)
 Branch lengths are optimized by maximum likelihood on original alignment
 Numbers in parentheses are bootstrap supports (%)
 
-+---------A/Massachusetts/18/2022/H3N2
++--------A/Massachusetts/18/2022/H3N2
 |
-|                                          +-----A/American_Wigeon/South_Carolina/USDA-000345-001/2021/H5N1
-|                                       +--| (99)
-|                                       |  +----A/Singapore/1/1957/H2N2
-|                                    +--| (75)
-|                                    |  +--------A/United/Kingdom/1/1933/H1N1
-|                                 +--| (62)
-|                                 |  +----------A/chicken/Taiwan/0705/1999/H6N1
-|                             +---| (96)
-|                             |   |             +--------A/little-yellow-shoulderedbat/Guatemala/060/2010/H17
-|                             |   +-------------| (100)
-|                             |                 +---------A/flat-faced-bat/Peru/033/2010/H18
-|           +-----------------| (100)
-|           |                 |               +-------A/turkey/Ontario/6118/1968/H8N4
-|           |                 |           +---| (91)
-|           |                 |           |   +------A/duck/Alberta/60/1976/H12N5
-|           |                 |  +--------| (100)
-|           |                 |  |        +-------A/swine/HongKong/9/1998/H9N2
-|           |                 +--| (67)
-|           |                    |   +-------A/duck/England/1/1956/H11N6
-|           |                    +---| (95)
-|           |                        |         +--A/gull/Maryland/704/1977/H13N6
-|           |                        +---------| (100)
-|           |                                  +---A/black-headedgull/Turkmenistan/13/1976/H16N3
-+-----------| (100)
-|           |               +--A/Anhui/1/2013/H7N9
-|           |        +------| (100)
-|           |        |      +--A/duck/Australia/341/1983/H15N8
-|           +--------| (100)
-|                    +------A/mallard/bavaria/3/2006/H10N7
+|                                       +----A/American_Wigeon/South_Carolina/USDA-000345-001/2021/H5N1
+|                                    +--| (97)
+|                                    |  +----A/Singapore/1/1957/H2N2
+|                                 +--| (59)
+|                                 |  +-------A/United/Kingdom/1/1933/H1N1
+|                              +--| (57)
+|                              |  |             +---------A/little-yellow-shoulderedbat/Guatemala/060/2010/H17
+|                              |  +-------------| (100)
+|                              |                +---------A/flat-faced-bat/Peru/033/2010/H18
+|                          +---| (98)
+|                          |   +--------A/chicken/Taiwan/0705/1999/H6N1
+|          +---------------| (100)
+|          |               |               +-------A/turkey/Ontario/6118/1968/H8N4
+|          |               |           +---| (90)
+|          |               |           |   +------A/duck/Alberta/60/1976/H12N5
+|          |               |  +--------| (100)
+|          |               |  |        +------A/swine/HongKong/9/1998/H9N2
+|          |               +--| (63)
+|          |                  |  +------A/duck/England/1/1956/H11N6
+|          |                  +--| (94)
+|          |                     |         +--A/gull/Maryland/704/1977/H13N6
+|          |                     +---------| (100)
+|          |                               +--A/black-headedgull/Turkmenistan/13/1976/H16N3
++----------| (100)
+|          |             +--A/Anhui/1/2013/H7N9
+|          |       +-----| (100)
+|          |       |     +--A/duck/Australia/341/1983/H15N8
+|          +-------| (100)
+|                  +------A/mallard/bavaria/3/2006/H10N7
 |
 |  +---A/swine/Ontario/01911-1/1099/H4N6
-+--| (82)
++--| (86)
    +--A/mallard/Astrakhan/263/1982/H14N5
 
 
 Consensus tree in newick format: 
 
-(A/Massachusetts/18/2022/H3N2:0.3551093465,((((((A/American_Wigeon/South_Carolina/USDA-000345-001/2021/H5N1:0.2120406878,A/Singapore/1/1957/H2N2:0.2014690123)99:0.1179558554,A/United/Kingdom/1/1933/H1N1:0.3151311886)75:0.0891089299,A/chicken/Taiwan/0705/1999/H6N1:0.3871343934)62:0.0889676186,(A/little-yellow-shoulderedbat/Guatemala/060/2010/H17:0.3440999394,A/flat-faced-bat/Peru/033/2010/H18:0.3763514226)100:0.4976728775)96:0.1390980828,(((A/turkey/Ontario/6118/1968/H8N4:0.3027416048,A/duck/Alberta/60/1976/H12N5:0.2591965745)91:0.1381859866,A/swine/HongKong/9/1998/H9N2:0.2815878943)100:0.3206238692,(A/duck/England/1/1956/H11N6:0.3029689124,(A/gull/Maryland/704/1977/H13N6:0.1245459770,A/black-headedgull/Turkmenistan/13/1976/H16N3:0.1396700409)100:0.3664910776)95:0.1383156959)67:0.0636994690)100:0.6258969417,((A/Anhui/1/2013/H7N9:0.1209904912,A/duck/Australia/341/1983/H15N8:0.1314879070)100:0.2476254697,A/mallard/bavaria/3/2006/H10N7:0.2463512186)100:0.3260600316)100:0.4313782312,(A/swine/Ontario/01911-1/1099/H4N6:0.1699844363,A/mallard/Astrakhan/263/1982/H14N5:0.1377267513)82:0.1178939658);
+(A/Massachusetts/18/2022/H3N2:0.3135027093,((((((A/American_Wigeon/South_Carolina/USDA-000345-001/2021/H5N1:0.1911908204,A/Singapore/1/1957/H2N2:0.1786870083)97:0.1083150167,A/United/Kingdom/1/1933/H1N1:0.2797840647)59:0.0526782938,(A/little-yellow-shoulderedbat/Guatemala/060/2010/H17:0.3333113046,A/flat-faced-bat/Peru/033/2010/H18:0.3284774532)100:0.4780176929)57:0.0623232650,A/chicken/Taiwan/0705/1999/H6N1:0.3211563731)98:0.1559045342,(((A/turkey/Ontario/6118/1968/H8N4:0.2631033987,A/duck/Alberta/60/1976/H12N5:0.2470314702)90:0.1298247486,A/swine/HongKong/9/1998/H9N2:0.2523593531)100:0.2897961391,(A/duck/England/1/1956/H11N6:0.2560359127,(A/gull/Maryland/704/1977/H13N6:0.1166185736,A/black-headedgull/Turkmenistan/13/1976/H16N3:0.1262040347)100:0.3406959075)94:0.1274022722)63:0.0533301981)100:0.5361565385,((A/Anhui/1/2013/H7N9:0.1159958085,A/duck/Australia/341/1983/H15N8:0.1162673088)100:0.2113118456,A/mallard/bavaria/3/2006/H10N7:0.2357964454)100:0.2857923599)100:0.3651394536,(A/swine/Ontario/01911-1/1099/H4N6:0.1574073731,A/mallard/Astrakhan/263/1982/H14N5:0.1273693416)86:0.1050232529);
 
 ALISIM COMMAND
 --------------
 To simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis, you can use the following command:
 
---alisim simulated_MSA -t results/ha_subtype_alignment/ha18.treefile -m "Q.YEAST+I{0.127927}+G4{1.39474}" --length 580
+--alisim simulated_MSA -t results/ha_subtype_alignment/ha18.treefile -m "JTT+G4{0.910957}" --length 580
 
 To mimic the alignment used to produce this analysis, i.e. simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis *and* copying the same gap positions as the original alignment, you can use the following command:
 
@@ -261,7 +177,7 @@ For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
 TIME STAMP
 ----------
 
-Date and time: Wed Nov 12 15:08:57 2025
-Total CPU time used: 171.55186 seconds (0h:2m:51s)
-Total wall-clock time used: 36.77119288 seconds (0h:0m:36s)
+Date and time: Mon Nov 17 15:52:33 2025
+Total CPU time used: 65.550657 seconds (0h:1m:5s)
+Total wall-clock time used: 21.19660389 seconds (0h:0m:21s)
 
