@@ -1,7 +1,7 @@
 # load MSA
-open ../results/foldmason_alignment/chain_A/4o5n_4kwm_chainA_aln.fasta
-open ../results/foldmason_alignment/chain_A/4o5n_6ii9_chainA_aln.fasta
-open ../results/foldmason_alignment/chain_A/6ii9_4kwm_chainA_aln.fasta
+open ../../results/foldmason_alignment/chain_A/4o5n_4kwm_chainA_aln.fasta
+open ../../results/foldmason_alignment/chain_A/4o5n_6ii9_chainA_aln.fasta
+open ../../results/foldmason_alignment/chain_A/6ii9_4kwm_chainA_aln.fasta
 
 # load PDBs (automatically associates with correct sequence in MSA)
 open 4o5n
@@ -14,13 +14,13 @@ sequence match 4o5n_6ii9_chainA_aln.fasta #3/A to #1/A
 
 # get RMSDs
 sequence header 4o5n_4kwm_chainA_aln.fasta rmsd show
-sequence header 4o5n_4kwm_chainA_aln.fasta rmsd save ../data/rmsd/h3_h5_ha1_rmsd.txt
+sequence header 4o5n_4kwm_chainA_aln.fasta rmsd save ../../data/rmsd/h3_h5_ha1_rmsd.txt
 
 sequence header 4o5n_6ii9_chainA_aln.fasta rmsd show
-sequence header 4o5n_6ii9_chainA_aln.fasta rmsd save ../data/rmsd/h3_h7_ha1_rmsd.txt
+sequence header 4o5n_6ii9_chainA_aln.fasta rmsd save ../../data/rmsd/h3_h7_ha1_rmsd.txt
 
 sequence header 6ii9_4kwm_chainA_aln.fasta rmsd show
-sequence header 6ii9_4kwm_chainA_aln.fasta rmsd save ../data/rmsd/h5_h7_ha1_rmsd.txt
+sequence header 6ii9_4kwm_chainA_aln.fasta rmsd save ../../data/rmsd/h5_h7_ha1_rmsd.txt
 
 sym #1 assembly 1
 
