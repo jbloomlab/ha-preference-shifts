@@ -22,7 +22,7 @@ rule all:
         "results/structural_alignment/structural_alignment.csv",
         "results/combined_effects/combined_mutation_effects.csv",
         "results/combined_effects/combined_site_effects.csv",
-
+        "results/publish_docs",
 
 rule infer_phylogenetic_tree:
     """Infer maximum-likelihood tree of HA subtypes with IQ-TREE."""
@@ -135,4 +135,8 @@ rule summarize_effects:
             -p clip_effect {params.clip_effect} > ../{log} 2>&1
         """
 
+# Include documentation building rules
+build_vitepress_homepage = False  # Set to True if you want VitePress integration
+other_target_files = []  # For conditional targets
 
+include: "docs.smk"

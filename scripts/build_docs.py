@@ -1,0 +1,133 @@
+"""Implements ``snakemake`` rule to build documentation."""
+
+import os
+import shutil
+import sys
+import time
+
+import markdown
+import markdown.extensions.toc
+
+
+sys.stderr = sys.stdout = log = open(snakemake.log[0], "w")
+
+# Clean and prepare the docs directory
+docs_dir = snakemake.params.docs_dir
+print(f"Cleaning docs directory: {docs_dir}")
+
+# Remove docs directory if it exists
+if os.path.exists(docs_dir):
+    shutil.rmtree(docs_dir)
+    print(f"Removed existing {docs_dir}")
+
+os.makedirs(docs_dir)
+print(f"Created docs directory: {docs_dir}")
+
+# Create subdirectories
+os.makedirs(os.path.join(docs_dir, "notebooks"), exist_ok=True)
+os.makedirs(os.path.join(docs_dir, "htmls"), exist_ok=True)
+print("Created subdirectories: notebooks/ and htmls/")
+
+# Copy HTML files from results to docs
+docs_processed_files = snakemake.params.docs_processed_files
+print(f"\nCopying {len(docs_processed_files)} HTML files to docs directory:")
+for dest, source in docs_processed_files.items():
+    print(f" {source} -> {dest}")
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    shutil.copy2(source, dest)
+
+print("\nGenerating index.html...")
+
+repo_url = snakemake.params.github_repo_url
+
+md_text = [
+    f"# {snakemake.params.description}",
+    f"Analysis by {snakemake.params.authors} ({snakemake.params.year})",
+    "",
+    f"See [{repo_url}]({repo_url}) for full code.",
+    "",
+    f"Documentation of results rendered as of {time.asctime()}",
+    "",
+    "[TOC]",
+    "",
+]
+
+subheading_depth = 2
+init_subheading = "##"
+collapse_list = []
+min_collapse_length = 1
+
+
+def process_docs(d, depth):
+    """Recursive function to process ``docs_links`` nested dict."""
+    depth += 1
+    depth_diff = depth - subheading_depth
+    for key, val in d.items():
+        if isinstance(val, str):
+            entry = f" [{key}]({val})"
+        elif isinstance(val, dict):
+            entry = f" {key}"
+        else:
+            raise ValueError(f"{key=} has invalid value type {type(val)}\n{val}")
+        if depth_diff <= 0:
+            md_text.append(
+                init_subheading + "##" * (subheading_depth + depth_diff - 1) + entry
+            )
+        else:
+            md_text.append(" " * depth_diff + f"-{entry}")
+        if isinstance(val, dict):
+            process_docs(val, depth)
+            if depth_diff > 0 and len(val) >= min_collapse_length:
+                if depth_diff > 1:
+                    raise ValueError("currently cannot handle list depth > 1")
+                collapse_list.append(key)
+
+
+process_docs(snakemake.params.docs_links, 0)
+
+md_text = "\n".join(md_text)
+
+print(f"Rendering the following markdown text:\n\n{md_text}\n\n")
+
+html = markdown.markdown(
+    md_text,
+    extensions=[
+        markdown.extensions.toc.TocExtension(
+            title="Contents",
+            toc_depth="2-2",
+        )
+    ],
+)
+
+# edit HTML to make deeply nested list items collapsible
+collapse_nested_lists = True
+if collapse_nested_lists:
+    print(f"Collapsing the following nested lists:\n{collapse_list}")
+    for list_heading in collapse_list:
+        list_start = f"<li>{list_heading}<ul>"
+        if html.count(list_start) != 1:
+            raise ValueError(f"{html.count(list_start)} occurrences of {list_start}")
+        end_index = (
+            html[html.index(list_start) + len(list_start) :].index("</ul>")
+            + html.index(list_start)
+            + len(list_start)
+        )
+
+        to_replace = html[html.index(list_start) : end_index + len("</ul>")]
+        assert html.count(to_replace) == 1
+        assert to_replace.startswith("<li>")
+        assert to_replace.endswith("</ul>"), to_replace
+
+        replace_with = (
+            "<li><details><summary>"
+            + list_heading
+            + " (click triangle to expand/collapse)</summary><ul>\n"
+            + to_replace[len(list_start) :]
+            + "</details>\n"
+        )
+        html = html.replace(to_replace, replace_with)
+
+with open(snakemake.output.html, "w") as f:
+    f.write(html)
+
+print(f"\nSuccessfully built documentation in {docs_dir}")

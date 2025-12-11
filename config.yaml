@@ -1,9 +1,26 @@
 # Config for analysis
 
 # ----------------------------------------------------------------------------
+github_repo_url: https://github.com/jbloomlab/ha-epistasis
+github_blob_url: https://github.com/jbloomlab/ha-epistasis/blob/main
 description: Comparing mutation effects to influenza HA subtypes
 year: 2025
 authors: Timothy Yu
+
+# ----------------------------------------------------------------------------
+# Docs
+# ----------------------------------------------------------------------------
+docs:
+  "Analysis":
+    "Analysis notebooks":
+      "Calculating pairwise sequence identities between HAs": "notebooks/sequence_identity.ipynb"
+      "Structural alignment of H3, H5, and H7": "notebooks/structural_alignment.ipynb"
+      "Calculating Jensen-Shannon divergence in amino-acid preferences between pairs of HAs": "notebooks/calculate_epistatic_shifts.ipynb"
+      "Analysis of factors associated with divergence in amino-acid preferences": "notebooks/explain_epistatic_shifts.ipynb"
+    "Data files":
+      "Structural alignment": "results/structural_alignment/structural_alignment.csv"
+      "Mutation effects": "results/combined_effects/combined_mutation_effects.csv"
+      "Average mutation effects at each site": "results/combined_effects/combined_site_effects.csv"
 
 # ----------------------------------------------------------------------------
 # Cell entry files
