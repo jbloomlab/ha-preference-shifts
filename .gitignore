@@ -13,3 +13,10 @@ scratch/*
 
 archive/
 logs/
+
+# PuLP solver temporary files
+*.mps
+*.sol
+
+# Allow docs folder for GitHub Pages
+!docs/

@@ -22,7 +22,7 @@ rule all:
         "results/structural_alignment/structural_alignment.csv",
         "results/combined_effects/combined_mutation_effects.csv",
         "results/combined_effects/combined_site_effects.csv",
-        "results/publish_docs",
+        "docs",
 
 rule infer_phylogenetic_tree:
     """Infer maximum-likelihood tree of HA subtypes with IQ-TREE."""
@@ -140,3 +140,8 @@ build_vitepress_homepage = False  # Set to True if you want VitePress integratio
 other_target_files = []  # For conditional targets
 
 include: "docs.smk"
+
+
+onsuccess:
+    # Clean up PuLP solver temporary files
+    shell("rm -f *.mps *.sol")

@@ -83,7 +83,7 @@ rule build_publish_docs:
             else rules.build_docs.output.html
         ),
     output:
-        publish_docs=directory("results/publish_docs"),
+        publish_docs=directory("docs"),
     params:
         input_dir=lambda _, input: (
             os.path.dirname(os.path.dirname(input.html))
