@@ -26,7 +26,7 @@ jobs:
       - name: Build docs
         shell: bash -l {0}
         run: |
-          snakemake -s docs.smk build_publish_docs -j 1
+          snakemake -s docs.smk --configfile config.yaml build_publish_docs -j 1
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
