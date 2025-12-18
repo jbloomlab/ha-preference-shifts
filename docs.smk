@@ -4,6 +4,11 @@ These rules operation on the nested dict ``docs``, which specifies
 the structure of the documentation to build.
 """
 
+# Set defaults for variables that may be defined in parent Snakefile
+if "build_vitepress_homepage" not in globals():
+    build_vitepress_homepage = False
+if "other_target_files" not in globals():
+    other_target_files = []
 
 # functions used by these rules
 include: "docs_funcs.smk"
