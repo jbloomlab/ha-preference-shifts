@@ -32,7 +32,7 @@ rule build_docs:
     input:
         docs_processed_files.values(),
     output:
-        html="results/docs/index.html",
+        html="docs/index.html",
     params:
         github_repo_url=config["github_repo_url"],
         docs_links=docs_links,
@@ -74,26 +74,31 @@ if build_vitepress_homepage:
     other_target_files.append(rules.build_vitepress_homepage.output.html)
 
 
-rule build_publish_docs:
-    """Get the actual docs to publish."""
-    input:
-        html=(
-            rules.build_vitepress_homepage.output.html
-            if build_vitepress_homepage
-            else rules.build_docs.output.html
-        ),
-    output:
-        publish_docs=directory("docs"),
-    params:
-        input_dir=lambda _, input: (
-            os.path.dirname(os.path.dirname(input.html))
-            if build_vitepress_homepage
-            else os.path.dirname(input.html)
-        ),
-    log:
-        "results/logs/build_publish_docs.log",
-    shell:
-        """
-        rm -rf {output.publish_docs} &> {log}
-        cp -r {params.input_dir} {output.publish_docs} &> {log}
-        """
+if build_vitepress_homepage:
+
+    rule build_publish_docs:
+        """Get the actual docs to publish."""
+        input:
+            html=rules.build_vitepress_homepage.output.html,
+        output:
+            publish_docs=directory("docs"),
+        params:
+            input_dir=lambda _, input: os.path.dirname(os.path.dirname(input.html)),
+        log:
+            "results/logs/build_publish_docs.log",
+        shell:
+            """
+            rm -rf {output.publish_docs} &> {log}
+            cp -r {params.input_dir} {output.publish_docs} &> {log}
+            """
+
+else:
+
+    rule build_publish_docs:
+        """Dummy rule to satisfy the 'docs' target."""
+        input:
+            html=rules.build_docs.output.html,
+        output:
+            publish_docs=touch("docs/.built"),
+        log:
+            "results/logs/build_publish_docs.log"
