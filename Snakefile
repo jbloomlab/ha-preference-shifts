@@ -22,7 +22,7 @@ rule all:
         "results/structural_alignment/structural_alignment.csv",
         "results/combined_effects/combined_mutation_effects.csv",
         "results/combined_effects/combined_site_effects.csv",
-        "docs",
+        "docs/.built",
 
 rule infer_phylogenetic_tree:
     """Infer maximum-likelihood tree of HA subtypes with IQ-TREE."""

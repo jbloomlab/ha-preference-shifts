@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------
 github_repo_url: https://github.com/jbloomlab/ha-epistasis
 github_blob_url: https://github.com/jbloomlab/ha-epistasis/blob/main
-description: Comparing mutation effects to influenza HA subtypes
+description: Comparing amino-acid preferences across influenza HA subtypes
 year: 2025
 authors: Timothy Yu
 
@@ -12,6 +12,8 @@ authors: Timothy Yu
 # ----------------------------------------------------------------------------
 docs:
   "Analysis":
+    "Interactive plots":
+      "Interactive lineplots of divergence in amino-acid preferences between pairs of HAs": "notebooks/combined_interactive_lineplots.html"
     "Analysis notebooks":
       "Calculating pairwise sequence identities between HAs": "notebooks/sequence_identity.ipynb"
       "Structural alignment of H3, H5, and H7": "notebooks/structural_alignment.ipynb"

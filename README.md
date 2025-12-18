@@ -1,4 +1,4 @@
-# Comparing mutation effects to HA across influenza subtypes
+# Comparing amino-acid preferences across influenza HA subtypes
 Study by Timothy Yu and Jesse Bloom.
 
 ## Conda environment
@@ -21,3 +21,5 @@ sbatch -c 8 run_hutch_cluster.bash
 ```
 
 Note some parts of the analysis depend on a local installation of ChimeraX. The files in [data/rmsd](data/rmsd) were pre-generated so that the pipeline runs in a single go, but they depend on files generated in the pipeline. If you'd like to reproduce them, open the ChimeraX scripts [rmsd_ha1.cxc](scripts/non_pipeline_scripts/rmsd_ha1.cxc) and [rmsd_ha2.cxc](scripts/non_pipeline_scripts/rmsd_ha2.cxc) in ChimeraX.
+
+This pipeline builds HTML documentation in [./docs/](./docs/). These docs are rendered for viewing at [https://jbloomlab.github.io/ha-epistasis/](https://jbloomlab.github.io/ha-epistasis/). 
