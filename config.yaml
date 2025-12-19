@@ -1,8 +1,8 @@
 # Config for analysis
 
 # ----------------------------------------------------------------------------
-github_repo_url: https://github.com/jbloomlab/ha-epistasis
-github_blob_url: https://github.com/jbloomlab/ha-epistasis/blob/main
+github_repo_url: https://github.com/jbloomlab/ha-preference-shifts
+github_blob_url: https://github.com/jbloomlab/ha-preference-shifts/blob/main
 description: Comparing amino-acid preferences across influenza HA subtypes
 year: 2025
 authors: Timothy Yu
