@@ -22,6 +22,11 @@ rule all:
         "results/structural_alignment/structural_alignment.csv",
         "results/combined_effects/combined_mutation_effects.csv",
         "results/combined_effects/combined_site_effects.csv",
+        "results/divergence/h3_h5_divergence.csv",
+        "results/divergence/h3_h7_divergence.csv",
+        "results/divergence/h5_h7_divergence.csv",
+        "notebooks/calculate_epistatic_shifts.html",
+        "notebooks/explain_epistatic_shifts.html",
         "docs/.built",
 
 rule infer_phylogenetic_tree:
@@ -133,6 +138,48 @@ rule summarize_effects:
             -p times_seen_filter {params.times_seen_filter} \
             -p n_selections_filter {params.n_selections_filter} \
             -p clip_effect {params.clip_effect} > ../{log} 2>&1
+        """
+
+
+rule calculate_epistatic_shifts:
+    """Calculate Jensen-Shannon divergence in amino-acid preferences."""
+    input:
+        notebook="notebooks/calculate_epistatic_shifts.ipynb",
+        mutation_effects="results/combined_effects/combined_mutation_effects.csv",
+    output:
+        h3_h5_divergence="results/divergence/h3_h5_divergence.csv",
+        h3_h7_divergence="results/divergence/h3_h7_divergence.csv",
+        h5_h7_divergence="results/divergence/h5_h7_divergence.csv",
+        html="notebooks/calculate_epistatic_shifts.html",
+    log:
+        "logs/calculate_epistatic_shifts.log",
+    shell:
+        """
+        jupyter nbconvert --to notebook --execute {input.notebook} \
+            --output-dir=notebooks --output=$(basename {input.notebook}) > {log} 2>&1 && \
+        jupyter nbconvert --to html {input.notebook} \
+            --output-dir=notebooks --output=$(basename {output.html}) >> {log} 2>&1
+        """
+
+
+rule explain_epistatic_shifts:
+    """Analyze factors associated with divergence in amino-acid preferences."""
+    input:
+        notebook="notebooks/explain_epistatic_shifts.ipynb",
+        h3_h5_divergence="results/divergence/h3_h5_divergence.csv",
+        h3_h7_divergence="results/divergence/h3_h7_divergence.csv",
+        h5_h7_divergence="results/divergence/h5_h7_divergence.csv",
+        site_effects="results/combined_effects/combined_site_effects.csv",
+    output:
+        html="notebooks/explain_epistatic_shifts.html",
+    log:
+        "logs/explain_epistatic_shifts.log",
+    shell:
+        """
+        jupyter nbconvert --to notebook --execute {input.notebook} \
+            --output-dir=notebooks --output=$(basename {input.notebook}) > {log} 2>&1 && \
+        jupyter nbconvert --to html {input.notebook} \
+            --output-dir=notebooks --output=$(basename {output.html}) >> {log} 2>&1
         """
 
 # Include documentation building rules
