@@ -1,5 +1,5 @@
 # Comparing amino-acid preferences across influenza HA subtypes
-Study by Timothy Yu and Jesse Bloom.
+Study by Jenny Ahn, Timothy Yu, and Jesse Bloom. See [Ahn and Yu et al (2026)](https://www.biorxiv.org/content/10.64898/2026.01.05.697808v1) for details on the study.
 
 ## Conda environment
 Build the conda environment using the provided `environment.yml` file in this directory:
