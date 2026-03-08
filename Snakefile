@@ -27,6 +27,8 @@ rule all:
         "results/divergence/h5_h7_divergence.csv",
         "notebooks/calculate_epistatic_shifts.html",
         "notebooks/explain_epistatic_shifts.html",
+        "notebooks/different_cell_type_comparison.html",
+        "notebooks/neighborhood_analysis.html",
         "docs/.built",
 
 rule infer_phylogenetic_tree:
@@ -181,6 +183,51 @@ rule explain_epistatic_shifts:
         jupyter nbconvert --to html {input.notebook} \
             --output-dir=notebooks --output=$(basename {output.html}) >> {log} 2>&1
         """
+
+rule different_cell_type_comparison:
+    """Compare mutation effects across different cell types."""
+    input:
+        notebook="notebooks/different_cell_type_comparison.ipynb",
+        h3_h5_divergence="results/divergence/h3_h5_divergence.csv",
+        h3_h7_divergence="results/divergence/h3_h7_divergence.csv",
+        h5_h7_divergence="results/divergence/h5_h7_divergence.csv",
+        cell_entry_23="data/cell_entry_effects/293_2-3_entry_func_effects.csv",
+        cell_entry_26="data/cell_entry_effects/293_2-6_entry_func_effects.csv",
+        cell_entry_sa23="data/cell_entry_effects/293_SA23_entry_func_effects.csv",
+        cell_entry_sa26="data/cell_entry_effects/293_SA26_entry_func_effects.csv",
+    output:
+        html="notebooks/different_cell_type_comparison.html",
+    log:
+        "logs/different_cell_type_comparison.log",
+    shell:
+        """
+        jupyter nbconvert --to notebook --execute {input.notebook} \
+            --output-dir=notebooks --output=$(basename {input.notebook}) > {log} 2>&1 && \
+        jupyter nbconvert --to html {input.notebook} \
+            --output-dir=notebooks --output=$(basename {output.html}) >> {log} 2>&1
+        """
+
+
+rule neighborhood_analysis:
+    """Analyze local neighborhood change versus divergence in amino-acid preferences."""
+    input:
+        notebook="notebooks/neighborhood_analysis.ipynb",
+        structural_alignment="results/structural_alignment/structural_alignment.csv",
+        h3_h5_divergence="results/divergence/h3_h5_divergence.csv",
+        h3_h7_divergence="results/divergence/h3_h7_divergence.csv",
+        h5_h7_divergence="results/divergence/h5_h7_divergence.csv",
+    output:
+        html="notebooks/neighborhood_analysis.html",
+    log:
+        "logs/neighborhood_analysis.log",
+    shell:
+        """
+        jupyter nbconvert --to notebook --execute {input.notebook} \
+            --output-dir=notebooks --output=$(basename {input.notebook}) > {log} 2>&1 && \
+        jupyter nbconvert --to html {input.notebook} \
+            --output-dir=notebooks --output=$(basename {output.html}) >> {log} 2>&1
+        """
+
 
 # Include documentation building rules
 build_vitepress_homepage = False  # Set to True if you want VitePress integration

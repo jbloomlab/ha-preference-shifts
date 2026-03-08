@@ -18,7 +18,9 @@ docs:
       "Calculating pairwise sequence identities between HAs": "notebooks/sequence_identity.ipynb"
       "Structural alignment of H3, H5, and H7": "notebooks/structural_alignment.ipynb"
       "Calculating Jensen-Shannon divergence in amino-acid preferences between pairs of HAs": "notebooks/calculate_epistatic_shifts.ipynb"
+      "Comparing mutation effects across different cell types": "notebooks/different_cell_type_comparison.ipynb"
       "Analysis of factors associated with divergence in amino-acid preferences": "notebooks/explain_epistatic_shifts.ipynb"
+      "Analysis of local neighborhood change versus divergence": "notebooks/neighborhood_analysis.ipynb"
     "Data files":
       "Structural alignment": "results/structural_alignment/structural_alignment.csv"
       "Mutation effects": "results/combined_effects/combined_mutation_effects.csv"
